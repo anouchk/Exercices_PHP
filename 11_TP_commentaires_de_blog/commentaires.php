@@ -54,12 +54,6 @@
 
 			<h2> Commentaires </h2>
 
-			<form action="commentaires_post.php" method="post">
-				<p><label> Pseudo</label> : <input type="text" name="pseudo"></p>
-				<p><label> Message</label> : <input type="text" name="message"></p>
-				<p><input type="submit" ></p>
-			</form>	
-
 			<?php
 			
 			$reponse->closeCursor(); // Important : on libère le curseur pour la prochaine requête
@@ -67,7 +61,16 @@
 			// Récupération des commentaires
 			$reponse2 = $bdd->prepare('SELECT * FROM commentaires WHERE id_billet=? ORDER BY id DESC');
 			$reponse2->execute(array($_GET['billet']));
+			?>
 
+			<form action="commentaires_post.php" method="post">
+				<p><label> Pseudo</label> : <input type="text" name="pseudo"></p>
+				<p><label> Message</label> : <input type="text" name="message"></p>
+				<input type ="hidden" name="id2_billet" value="<?php echo $_GET['billet']?>">
+				<p><input type="submit" ></p>
+			</form>	
+
+			<?php
 			while ($donnees2 = $reponse2->fetch()) {
 			?>
 				<p>
