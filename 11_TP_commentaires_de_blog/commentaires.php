@@ -71,6 +71,7 @@
 			</form>	
 
 			<?php
+				
 			while ($donnees2 = $reponse2->fetch()) {
 			?>
 				<p>
