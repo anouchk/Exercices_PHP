@@ -2,9 +2,7 @@
 	//mise en place du cookie
 	if (isset($_POST['pseudo'])) {
 		setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
-	} else {
-		echo "pas de pseudo gardé en mémoire";
-	}
+	} 
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +18,7 @@
   				if (isset($_COOKIE['pseudo'])) {
     				echo htmlspecialchars($_COOKIE['pseudo']);
   				} else {
-  					echo " pseudo";
+  					echo "entrez votre pseudo";
   				}
    			?>">
   			</p>

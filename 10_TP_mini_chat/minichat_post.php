@@ -1,7 +1,6 @@
-
 <?php
 	//mise en place du cookie
-	setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
+	//setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
 
 	// Connexion à la base de données
 	try {
@@ -17,4 +16,3 @@
 
 	// Puis rediriger le visiteur vers la page du minichat.php comme ceci :
 	header('Location: minichat.php');
-?>
