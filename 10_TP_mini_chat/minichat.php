@@ -1,8 +1,8 @@
 <?php
 	//mise en place du cookie
-	if (isset($_POST['pseudo'])) {
-		setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
-	} 
+	//if (isset($_POST['pseudo'])) {
+	//	setcookie('pseudo', $_POST['pseudo'], time() + 365*24*3600, null, null, false, true);
+	//} 
 ?>
 
 <!DOCTYPE html>
