@@ -28,7 +28,7 @@
 			
 			$idBillet=$_GET['billet'];
 			// Récupération du billet
-			$reponse = $bdd->prepare('SELECT * FROM billets WHERE id=?');
+			$reponse = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets WHERE id=?');
 			$reponse->execute(array($idBillet));
 			//print_r($reponse); die();
 			//print_r($_GET); die();
@@ -37,12 +37,13 @@
 			// fetch ça récupère une ligne à chaque fois 
 			$donnees = $reponse->fetch();
 			//print_r($reponse->fetch()); die();
+			//A priori c'est ici où je peux vérifier si le billet existe sur la page de commentaires, genre : if $donnees=empty alors msg d'erreur, else, continue. 
 	?>
 
 			<div class="news">		
 				<h3> 
 					<?php echo htmlspecialchars($donnees['titre']) ; ?>
-					<em><?php echo htmlspecialchars($donnees['date_creation']) ; ?></em>
+					<em><?php echo htmlspecialchars($donnees['date_creation_fr']) ; ?></em>
 				</h3>
 
 				<p> 
@@ -59,7 +60,7 @@
 			$reponse->closeCursor(); // Important : on libère le curseur pour la prochaine requête
 
 			// Récupération des commentaires
-			$reponse2 = $bdd->prepare('SELECT * FROM commentaires WHERE id_billet=? ORDER BY id DESC');
+			$reponse2 = $bdd->prepare('SELECT auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentaire_fr FROM commentaires WHERE id_billet=? ORDER BY id DESC');
 			$reponse2->execute(array($_GET['billet']));
 			?>
 
@@ -76,7 +77,7 @@
 			?>
 				<p>
 					<strong><?php echo htmlspecialchars($donnees2['auteur']) ; ?></strong>
-					Le <?php echo htmlspecialchars($donnees2['date_commentaire']) ; ?>
+					Le <?php echo htmlspecialchars($donnees2['date_commentaire_fr']) ; ?>
 				</p>
 				<div><?php echo nl2br (htmlspecialchars($donnees2['commentaire'])) ; ?></div>
 			<?php	
