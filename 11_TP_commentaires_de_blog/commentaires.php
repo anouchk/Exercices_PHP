@@ -25,7 +25,7 @@
 				die('Erreur : '.$e->getMessage());
 			}
 
-			
+			// $_GET['billet'] on l'a défini dans la page index.php, c'est l'id du billet en question sur lequel on a cliqué pour voir les commmentaires
 			$idBillet=$_GET['billet'];
 			// Récupération du billet
 			$reponse = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets WHERE id=?');
