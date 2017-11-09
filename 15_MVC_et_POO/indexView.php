@@ -26,7 +26,7 @@
             echo nl2br(htmlspecialchars($donnees['contenu']));
             ?>
             <br />
-            <em><a href="#">Commentaires</a></em>
+            <em><a href="billet.php?id=<?= $donnees['id'] ?>">Commentaires</a></em>
             </p>
         </div>
         <?php
