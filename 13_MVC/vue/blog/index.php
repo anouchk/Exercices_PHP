@@ -12,6 +12,7 @@
         <p>Derniers billets du blog :</p>
 
 <?php
+var_dump($billets);
 foreach($billets as $billet) {
 ?>
 
@@ -24,7 +25,7 @@ foreach($billets as $billet) {
     <p>
         <?php echo $billet['contenu']; ?>
         <br />
-        <em><a href="blog.php?section=commentaires.php&billet=<?php echo $billet['id']; ?>">Commentaires</a></em>
+        <em><a href="blog.php?section=commentaires&billet=<?php echo $billet['id']; ?>">Commentaires</a></em>
     </p>
 </div>
 

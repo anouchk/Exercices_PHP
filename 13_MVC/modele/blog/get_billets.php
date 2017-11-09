@@ -10,7 +10,7 @@ function get_billets($offset, $limit) {
     $req->bindParam(':offset', $offset, PDO::PARAM_INT);
     $req->bindParam(':limit', $limit, PDO::PARAM_INT);
     $req->execute();
-    $billets = $req->fetchAll();
+    $billets = $req->fetchAll(PDO::FETCH_ASSOC);
 
     return $billets;
 

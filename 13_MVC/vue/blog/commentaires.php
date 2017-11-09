@@ -34,10 +34,10 @@
 				foreach ($commentaires as $commentaire)	{
 			?>
 				<p>
-					<strong><?php echo $commentaire['auteur']) ; ?></strong>
-					Le <?php echo $commentaire['date_commentaire_fr']) ; ?>
+					<strong><?php echo $commentaire['auteur'] ; ?></strong>
+					Le <?php echo $commentaire['date_commentaire_fr'] ; ?>
 				</p>
-				<div><?php echo $commentaire['commentaire'])) ; ?></div>
+				<div><?php echo $commentaire['commentaire'] ; ?></div>
 			<?php	
 			} // fin de la boucle des commentaires 
 			?>
