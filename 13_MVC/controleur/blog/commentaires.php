@@ -2,7 +2,9 @@
  
 // On demande les 10 derniers commentaires (modèle) 
 include_once('modele/blog/get_commentaires.php'); 
+include_once('modele/blog/get_billet.php'); 
 $commentaires = get_commentaires(0, 10); 
+$billet = get_billet();
  
 // On effectue du traitement sur les données (contrôleur) 
 // Ici, on doit surtout sécuriser l'affichage 
