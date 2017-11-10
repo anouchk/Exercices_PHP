@@ -8,8 +8,8 @@ function get_billet() {
     global $bdd;
     
     // Récupération du billet   
-    $PDOstatement = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets WHERE id=?');
-    $PDOstatement->execute(array($idBillet));
-    $billet = $PDOstatement->fetch(PDO::FETCH_ASSOC);
+    $req = $bdd->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets WHERE id=?');
+    $req->execute(array($idBillet));
+    $billet = $req->fetch(PDO::FETCH_ASSOC);
     return $billet ;
 }

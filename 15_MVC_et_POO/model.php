@@ -24,7 +24,7 @@ function getCommentaires($idBillet)
     return $commentaires;
 }
 
-// Nouvelle fonction qui nous permet d'éviter de répéter du code
+// Nouvelle fonction de connexion à la base de données qui nous permet d'éviter de répéter du code
 function dbConnect()
 {
     try

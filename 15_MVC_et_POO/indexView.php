@@ -15,6 +15,7 @@
         while ($donnees = $req->fetch())
         {
         ?>
+        
         <div class="news">
             <h3>
                 <?php echo htmlspecialchars($donnees['titre']); ?>
@@ -22,16 +23,18 @@
             </h3>
             
             <p>
-            <?php
-            echo nl2br(htmlspecialchars($donnees['contenu']));
-            ?>
-            <br />
-            <em><a href="billet.php?id=<?= $donnees['id'] ?>">Commentaires</a></em>
+                <?php
+                    echo nl2br(htmlspecialchars($donnees['contenu']));
+                ?>
+                <br />
+                <em><a href="billet.php?id=<?= $donnees['id'] ?>">Commentaires</a></em>
             </p>
         </div>
+
         <?php
         }
         $req->closeCursor();
         ?>
+
     </body>
 </html>
