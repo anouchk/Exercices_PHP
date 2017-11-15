@@ -12,7 +12,7 @@
         <p>Derniers billets du blog :</p>
 
 <?php
-var_dump($billets);
+//var_dump($billets);
 foreach($billets as $billet) {
 ?>
 

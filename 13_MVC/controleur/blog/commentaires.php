@@ -9,8 +9,8 @@ $commentaires = get_commentaires(0, 10, $idBillet);
  
 // On effectue du traitement sur les données (contrôleur) 
 // Ici, on doit surtout sécuriser l'affichage 
-echo "<pre>";
-var_dump($commentaires);
+// echo "<pre>";
+// var_dump($commentaires);
 foreach($commentaires as $cle => $commentaire) 
 { 
 	// var_dump($commentaire);

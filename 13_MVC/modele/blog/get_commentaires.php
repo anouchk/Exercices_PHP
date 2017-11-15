@@ -16,6 +16,7 @@ function get_commentaires($offset, $limit, $idBillet) {
 	$reponse->execute(array($idBillet));
     $req->bindParam(':offset', $offset, PDO::PARAM_INT);
     $req->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $reponse->bindParam(':id', $idBillet, PDO::PARAM_INT);
     $req->execute();
     $commentaires = $req->fetchAll();
 
