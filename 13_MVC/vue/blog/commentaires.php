@@ -30,6 +30,14 @@
 
 			<h2> Commentaires </h2>
 
+			<form action="blog.php?section=commentaires&billet=<?php echo $billet['id']; ?>" method="post">
+				<p><label> Pseudo</label> : <input type="text" name="pseudo"></p>
+				<p><label> Message</label> : <input type="text" name="message"></p>
+				<input type ="hidden" name="id2_billet" value="<?php echo $_GET['billet']?>">
+				<p><input type="submit" ></p>
+			</form>	
+
+
 		     <?php
 				foreach ($commentaires as $commentaire)	{
 			?>
