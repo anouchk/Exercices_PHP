@@ -4,6 +4,7 @@ include_once('modele/blog/get_commentaires.php');
 include_once('modele/blog/get_billet.php');  
 if (!empty($_POST)) {
 	include_once('modele/blog/post_commentaire.php');
+	post_commentaire();
 }
 $idBillet=$_GET['billet'];
 $billet = get_billet();
