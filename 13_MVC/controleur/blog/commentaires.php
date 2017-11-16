@@ -2,7 +2,9 @@
 // On demande les 10 derniers commentaires (modèle) 
 include_once('modele/blog/get_commentaires.php'); 
 include_once('modele/blog/get_billet.php');  
-include_once('modele/blog/post_commentaire.php');
+if (!empty($_POST)) {
+	include_once('modele/blog/post_commentaire.php');
+}
 $idBillet=$_GET['billet'];
 $billet = get_billet();
 $commentaires = get_commentaires(0, 10, $idBillet);
