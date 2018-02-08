@@ -11,6 +11,8 @@ try {
 
 $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
+// initialisation de la variable
+$pseudo = $_POST['pseudo'];
 
 // Vérification des identifiants
 
