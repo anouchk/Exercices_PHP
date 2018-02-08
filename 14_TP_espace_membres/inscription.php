@@ -5,7 +5,7 @@
 		<title>TP Espace membres</title>
 	</head>
 	<body>
-		<form action="" method="">
+		<form action="cible_insertion.php" method="post">
 			<p>
 				<label for "pseudo"> Pseudo</label> : <input type="text" name="pseudo" id="pseudo" value="">	
   			</p>
