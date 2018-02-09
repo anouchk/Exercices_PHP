@@ -1,5 +1,4 @@
 <?php 
-
 // Connexion à la base de données
 try {
 		$bdd = new PDO('mysql:host=localhost;dbname=TP_espace_membres;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -26,4 +25,9 @@ if (password_verify($_POST['pass'], $resultat['pass'])) {
     echo 'Vous êtes connecté !';
 } else {
     echo 'Mauvais identifiant ou mot de passe !';
+}
+
+if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+{
+    echo '<br><br>Bonjour ' . $_SESSION['pseudo'];
 }
