@@ -19,18 +19,29 @@ $pseudo = $_POST['pseudo'];
 $req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :pass');
 $req->execute(array(
     'pseudo' => $pseudo,
-    'pass' => $pass_hache));
+    'pass' => $pass));
 $resultat = $req->fetch();
 
-
-if (!$resultat)
-{
-    echo 'Mauvais identifiant ou mot de passe !';
-}
-else
+if (password_verify($_POST['pass'], $pass)) 
 {
     session_start();
     $_SESSION['id'] = $resultat['id'];
     $_SESSION['pseudo'] = $pseudo;
     echo 'Vous êtes connecté !';
+} 
+else 
+{
+    echo 'Mauvais identifiant ou mot de passe !';
 }
+
+// if (!$resultat)
+// {
+//     echo 'Mauvais identifiant ou mot de passe !';
+// }
+// else
+// {
+//     session_start();
+//     $_SESSION['id'] = $resultat['id'];
+//     $_SESSION['pseudo'] = $pseudo;
+//     echo 'Vous êtes connecté !';
+// }
