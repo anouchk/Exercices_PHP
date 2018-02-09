@@ -7,6 +7,23 @@ try {
 		die('Erreur : '.$e->getMessage());
 }
 
+// etape 1 : recupérer dans la bdd la ligne qui correspond au pseudo
+$req = $bdd->prepare('SELECT id, pass FROM membres WHERE pseudo = :pseudo');
+$pseudo = $_POST['pseudo'];
+$req->execute(array(
+    'pseudo' => $pseudo,
+));
+$resultat = $req->fetch();
+
+// etape 2 : comparer le pass du hash avec celui entré par le formulaire de connexion
+if (password_verify($_POST['pass'], $resultat['pass'])) {
+    echo "connexion ok";
+} else {
+
+    echo "connexion PAS ok";
+}
+
+
 // Récupération des identifiants entrés par l'utilisateur à l'inscription
 $req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :pass');
 
@@ -14,7 +31,7 @@ $req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :
 $pass = $_POST['pass'];
 $pseudo = $_POST['pseudo'];
 
-password_verify($_POST['pass'], $pass)
+password_verify($_POST['pass'], $pass);
 
 $req->execute(array(
     'pseudo' => $pseudo,
