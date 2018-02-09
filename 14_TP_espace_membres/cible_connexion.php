@@ -7,22 +7,21 @@ try {
 		die('Erreur : '.$e->getMessage());
 }
 
-// Hachage du mot de passe
+// Récupération des identifiants entrés par l'utilisateur à l'inscription
+$req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :pass');
 
-$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-
-// initialisation de la variable
+// Initialisation des variables récupérant les identifiants entrés par l'utilisateur à la connexion
+$pass = $_POST['pass'];
 $pseudo = $_POST['pseudo'];
 
-// Vérification des identifiants
+password_verify($_POST['pass'], $pass)
 
-$req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo AND pass = :pass');
 $req->execute(array(
     'pseudo' => $pseudo,
     'pass' => $pass));
 $resultat = $req->fetch();
 
-if (password_verify($_POST['pass'], $pass)) 
+if ($resultat) 
 {
     session_start();
     $_SESSION['id'] = $resultat['id'];
